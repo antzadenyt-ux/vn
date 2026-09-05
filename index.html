@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ANTZADEN | TAJNÁ SOUTĚŽ</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #080808;
+    color: white;
+    text-align: center;
+}
+
+/* POZADÍ */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at top, #242424 0%, transparent 40%);
+    z-index: -1;
+}
+
+/* HLAVNÍ ČÁST */
+header {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    font-size: clamp(45px, 10vw, 100px);
+    letter-spacing: 8px;
+    margin: 0;
+}
+
+.secret {
+    color: #aaa;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+/* TLAČÍTKO */
+.start-button {
+    margin-top: 40px;
+    padding: 18px 35px;
+    border: 1px solid #666;
+    border-radius: 50px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.start-button:hover {
+    transform: scale(1.08);
+    background: #ddd;
+}
+
+/* OBSAH */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid #292929;
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 25px;
+}
+
+.box h2 {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+/* ODPOČET */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.time {
+    min-width: 100px;
+    padding: 20px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 15px;
+}
+
+.number {
+    display: block;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.label {
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
+}
+
+/* ÚČTY */
+.accounts {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.account {
+    width: 220px;
+    padding: 25px;
+    border-radius: 18px;
+    background: #111;
+    border: 1px solid #333;
+}
+
+.account h3 {
+    letter-spacing: 3px;
+}
+
+.vip {
+    background: linear-gradient(145deg, #1a1a1a, #080808);
+    border-color: #777;
+}
+
+/* EMAIL */
+.join-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 20px 35px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.join-button:hover {
+    transform: scale(1.08);
+}
+
+.small-text {
+    color: #888;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+footer {
+    border-top: 1px solid #222;
+    padding: 30px;
+    color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <p class="secret">Něco se blíží...</p>
+
+    <h1 class="logo">ANTZADEN</h1>
+
+    <p>
+        Speciální soutěž. Pouze několik vybraných účastníků.
+    </p>
+
+    <a href="#soutez" class="start-button">
+        ODHALIT INFORMACE ↓
+    </a>
+
+</header>
+
+
+<div class="container" id="soutez">
+
+    <div class="box">
+
+        <h2>🤫 TAJNÁ AKCE</h2>
+
+        <p>
+            Dne <strong>5. 9. 2026</strong> se uskuteční něco,
+            o čem zatím ví jen několik lidí.
+        </p>
+
+        <p>
+            Máš možnost být u toho.
+        </p>
+
+    </div>
+
+
+    <div class="box">
+
+        <h2>⏳ ODPOČET ZAČAL</h2>
+
+        <div class="countdown">
+
+            <div class="time">
+                <span class="number" id="days">00</span>
+                <span class="label">Dní</span>
+            </div>
+
+            <div class="time">
+                <span class="number" id="hours">00</span>
+                <span class="label">Hodin</span>
+            </div>
+
+            <div class="time">
+                <span class="number" id="minutes">00</span>
+                <span class="label">Minut</span>
+            </div>
+
+            <div class="time">
+                <span class="number" id="seconds">00</span>
+                <span class="label">Sekund</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="box">
+
+        <h2>🎁 DOSTUPNÉ ÚČTY</h2>
+
+        <div class="accounts">
+
+            <div class="account">
+                <h3>STANDARD</h3>
+                <p>Účet č. 1</p>
+            </div>
+
+            <div class="account">
+                <h3>STANDARD</h3>
+                <p>Účet č. 2</p>
+            </div>
+
+            <div class="account vip">
+                <h3>👑 VIP</h3>
+                <p>Speciální účet</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="box">
+
+        <h2>📩 CHCEŠ SE ZÚČASTNIT?</h2>
+
+        <p>
+            Pošli žádost o účast a zjisti více informací.
+        </p>
+
+        <a
+        class="join-button"
+        target="_blank"
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=antzadenyt@gmail.com&su=Účast v soutěži ANTZADEN&body=Chtěl/a bych se zúčastnit soutěže ANTZADEN.">
+
+        CHCI SE ZÚČASTNIT →
+
+        </a>
+
+        <p class="small-text">
+            Po kliknutí se otevře Gmail s připravenou zprávou.
+        </p>
+
+    </div>
+
+</div>
+
+
+<footer>
+    © 2026 ANTZADEN • TAJNÁ AKCE
+</footer>
+
+
+<script>
+
+/* DATUM TAJNÉ AKCE */
+const targetDate = new Date("September 5, 2026 00:00:00").getTime();
+
+function updateCountdown() {
+
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    if (difference <= 0) {
+
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+
+        return;
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (difference % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (difference % (1000 * 60))
+        / 1000
+    );
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+</script>
+
+</body>
+</html>
